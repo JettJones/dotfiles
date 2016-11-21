@@ -3,7 +3,7 @@
   (require 'go-mode-autoloads)
 
 ; additional hooks on top of go-mode
-; copied from web 
+; copied from web
 ; http://tleyden.github.io/blog/2014/05/22/configure-emacs-as-a-go-editor-from-scratch/
 (setq exec-path (cons "/go/bin" exec-path))
 

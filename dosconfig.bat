@@ -1,12 +1,16 @@
 @echo off
-set path=%path%;%windir%\Microsoft.NET\Framework\v4.0.30319
+:set path=%path%;%windir%\Microsoft.NET\Framework\v4.0.30319
 set path=%path%;C:\scripts\sysinternals
 set path=%path%;C:\MinGW\bin
 set path=%path%;C:\MinGW\msys\1.0\bin
-set path=%path%;C:\Program Files (x86)\Heroku
-set path=%path%;C:\go\bin
+:set path=%path%;C:\Program Files (x86)\Heroku
+:set path=%path%;C:\go\bin
+set path=%path%;C:\Program Files\Oracle\VirtualBox
+set path=%path%;c:\programdata\chocolatey\lib\python3\tools\Scripts
+set path=%path%;C:\Scripts\bin
 
-set np=C:\scripts\notepad2\notepad2.exe
+set HOME=%UserProfile%
+set np="C:\Program Files (x86)\Notepad++\notepad++.exe"
 
 doskey aliases=%np% %UserProfile%\dosconfig.bat
 doskey apply=pushd %UserProfile% $T dosconfig.bat $T popd
@@ -19,7 +23,12 @@ doskey sqd=mysqldump -u %local_sql_user% -p%local_sql_pw% --no-data --databases 
 doskey dm=docker-machine $*
 doskey il=C:\scripts\IlSpy\2.0.0.1595_RTW\ilspy.exe $*
 doskey e=start C:\scripts\emacs\emacs-24.5\bin\runemacs.exe $*
-doskey kp=C:\scripts\KeePass-2.30\KeePass.exe $*
+doskey kp=C:\scripts\KeePass2.34\KeePass.exe $*
+doskey rmg=C:\scripts\robomongo\Robomongo.exe $*
+doskey hosts=%np% C:\windows\system32\drivers\etc\hosts
+doskey vmrun="C:\Program Files (x86)\VMware\VMware Workstation\vmrun" $*
+
+doskey dm-apply=pushd %UserProfile% $T docker-machine env $* $G dm-tmp.bat $T dm-tmp.bat $T popd
 
 : wishful linux aliases
 doskey ls=dir $*
@@ -36,16 +45,14 @@ doskey ...=cd ..\..\..
 doskey ....=cd ..\..\..\..
 doskey .....=cd ..\..\..\..\..
 
-doskey vp=cd "%UserProfile%\Documents\Visual Studio 2012\Projects\"$*
-
-color 07
+:color 07
 prompt $P$+$_$G
 
-: boot2docker settings
-set DOCKER_TLS_VERIFY=1
-set DOCKER_HOST=tcp://192.168.99.100:2376
-set DOCKER_CERT_PATH=%UserProfile%\.docker\machine\machines\default
+:set GOPATH=D:\dev\go
+:set GOROOT=C:\go\
+:set PATH=%PATH%;%GOPATH%\bin
 
-set GOPATH=D:\dev\go
-set GOROOT=C:\go\
-set PATH=%PATH%;%GOPATH%\bin
+: Local overrides
+if exist "local.bat" (
+   local.bat
+)

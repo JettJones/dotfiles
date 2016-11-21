@@ -9,8 +9,10 @@
   (load-theme 'zenburn t)
 
 ; add modes
-  (load "~/.emacs.d/package-stuff.el" nil t)
-  (load "~/.emacs.d/go-stuff.el" nil t)
+(load "~/.emacs.d/package-stuff.el" nil t)
+(load "~/.emacs.d/dockerfile-mode/dockerfile-mode.el" nil t)
+(load "~/.emacs.d/whitespace.el" nil t)
+;  (load "~/.emacs.d/go-stuff.el" nil t)
 ;  (load "~/.emacs.d/autocomplete-stuff.el" nil t)
 
 ; thanks UI
