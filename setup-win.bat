@@ -1,7 +1,6 @@
 : using labels for comments, so lazy
 
 : symlink files
-mklink /H "%UserProfile%\.emacs" .\emacs
 mklink /D /J "%UserProfile%\.emacs.d" emacs.d
 
 mklink /H "%UserProfile%\dosconfig.bat" .\dosconfig.bat

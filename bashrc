@@ -1,3 +1,13 @@
+export PS1="\]\e[1;35m\w\e[0m\]\n\$ "
+export PATH=$PATH:"/c/Program Files/Git/bin"
+
+alias kp="start /c/scripts/KeePass2.34/KeePass.exe"
+alias e="/c/scripts/emacs/emacs-26.2/bin/runemacs.exe"
+
+alias ..="cd ../../.."
+alias ...="cd ../../.."
+alias ....="cd ../../../.."
+alias .....="cd ../../../../.."
 
 d-rmi() {
     # remove untagged images
@@ -14,14 +24,12 @@ d-rmv() {
     docker volume ls -q -f dangling=true | grep -v _ | xargs --no-run-if-empty docker volume rm
 }
 
-
-d-ntp() {
-    # fix local boot2docker time after resume
-    # https://gist.github.com/mmcc/bfd052a12fdd82f76161
-    docker-machine ssh $DOCKER_MACHINE_NAME -- sudo killall -9 ntpd
-    docker-machine ssh $DOCKER_MACHINE_NAME -- sudo ntpclient -s -h pool.ntp.org
-    docker-machine ssh $DOCKER_MACHINE_NAME -- sudo ntpd -p pool.ntp.org && date
+d-exec() {
+    local arg1=${2:-bash}
+    # remove unused volumes
+    docker exec -ti $(docker ps -qf name=$1) $arg1
 }
+
 
 ds-restart() {
     docker service update --env-add "RESTART=$(date)" $1
