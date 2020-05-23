@@ -10,6 +10,10 @@ if [ ! -f ~/.bashrc ]; then
   ln -s ${SCRIPT_DIR}/bashrc ~/.bashrc
 fi
 
+if [ ! -f ~/.zshrc ]; then
+  ln -s ${SCRIPT_DIR}/zshrc ~/.zshrc
+fi
+
 if [ ! -d ~/.emacs.d ]; then
   ln -s ${SCRIPT_DIR}/emacs.d ~/.emacs.d
 fi

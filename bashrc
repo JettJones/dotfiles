@@ -4,10 +4,12 @@ export PATH=$PATH:"/c/Program Files/Git/bin"
 alias kp="start /c/scripts/KeePass2.34/KeePass.exe"
 alias e="/c/scripts/emacs/emacs-26.2/bin/runemacs.exe"
 
-alias ..="cd ../../.."
+alias ..="cd ../.."
 alias ...="cd ../../.."
 alias ....="cd ../../../.."
 alias .....="cd ../../../../.."
+
+alias apply="source ~/.bashrc"
 
 d-rmi() {
     # remove untagged images
@@ -26,7 +28,6 @@ d-rmv() {
 
 d-exec() {
     local arg1=${2:-bash}
-    # remove unused volumes
     docker exec -ti $(docker ps -qf name=$1) $arg1
 }
 
@@ -34,3 +35,10 @@ d-exec() {
 ds-restart() {
     docker service update --env-add "RESTART=$(date)" $1
 }
+
+if [[ -f ~/.bashrc.local ]]; then
+    echo "local exists";
+    source ~/.bashrc.local
+else
+    echo "no local";
+fi
