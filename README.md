@@ -9,10 +9,4 @@ Setup does symlinking to make cmd a little more comfortable, but leaves installa
 To get to the point where setup runs successfully, this is a list of related tools:
 
 * git  (https://git-scm.com/download/win)
-* Emacs (http://mirrors.ibiblio.org/gnu/ftp/gnu/emacs/windows/)
-* MinGW (http://www.mingw.org/) with specific addins
-    * msys-core
-    * msys-diffutils
-    * msys-grep
-    * msys-make
-    * msys-openssh
+* emacs (https://ftp.gnu.org/gnu/emacs/windows/)

@@ -2,7 +2,7 @@ export PS1="\]\e[1;35m\w\e[0m\]\n\$ "
 export PATH=$PATH:"/c/Program Files/Git/bin"
 
 alias kp="start /c/scripts/KeePass2.34/KeePass.exe"
-alias e="/c/scripts/emacs/emacs-26.2/bin/runemacs.exe"
+alias e="/c/Program\ Files/Emacs/x86_64/bin/runemacs.exe"
 
 alias ..="cd ../.."
 alias ...="cd ../../.."
@@ -37,7 +37,7 @@ ds-restart() {
 }
 
 if [[ -f ~/.bashrc.local ]]; then
-    echo "local exists";
+    echo "import local";
     source ~/.bashrc.local
 else
     echo "no local";
