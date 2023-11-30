@@ -1,9 +1,11 @@
+# overrides I use for bash on windows
 export PS1="\]\e[1;35m\w\e[0m\]\n\$ "
 export PATH=$PATH:"/c/Program Files/Git/bin"
 
 alias kp="start /c/scripts/KeePass2.34/KeePass.exe"
 alias e="/c/Program\ Files/Emacs/x86_64/bin/runemacs.exe"
 
+# more generic aliases and shortcuts
 alias ..="cd ../.."
 alias ...="cd ../../.."
 alias ....="cd ../../../.."

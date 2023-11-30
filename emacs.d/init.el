@@ -8,6 +8,7 @@
  '(cua-mode t nil (cua-base))
  '(inhibit-startup-screen t)
  '(menu-bar-mode nil)
+ '(package-selected-packages '(projectile counsel ivy use-package))
  '(scroll-bar-mode nil)
  '(text-mode-hook '(turn-on-auto-fill text-mode-hook-identify))
  '(tool-bar-mode nil))
