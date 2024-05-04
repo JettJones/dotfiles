@@ -7,7 +7,7 @@ set path=%path%;C:\scripts\sysinternals
 :set path=%path%;C:\Program Files\Oracle\VirtualBox
 set path=%path%;c:\programdata\chocolatey\lib\python3\tools\Scripts
 set path=%path%;C:\scripts\bin
-set path=%path%;C:\scripts\jdk13.0.2\bin
+:set path=%path%;C:\scripts\jdk13.0.2\bin
 
 set HOME=%UserProfile%
 set np="C:\scripts\Notepad2\notepad2.exe"
@@ -26,9 +26,8 @@ doskey dm=docker-machine $*
 doskey il=C:\scripts\IlSpy\2.0.0.1595_RTW\ilspy.exe $*
 doskey e=start C:\scripts\emacs\emacs-26.2\bin\runemacs.exe $*
 doskey kp=C:\scripts\KeePass2.34\KeePass.exe $*
-doskey rmg=C:\scripts\robomongo\Robomongo.exe $*
 doskey hosts=%np% C:\windows\system32\drivers\etc\hosts
-doskey vmrun="C:\Program Files (x86)\VMware\VMware Workstation\vmrun" $*
+:doskey vmrun="C:\Program Files (x86)\VMware\VMware Workstation\vmrun" $*
 
 doskey dm-apply=pushd %UserProfile% $T docker-machine env $* $G dm-tmp.bat $T dm-tmp.bat $T popd
 
